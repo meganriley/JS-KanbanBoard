@@ -1,3 +1,5 @@
+const { importNamespaceSpecifier } = require("jscodeshift");
+
 let order = 1;
 let adding = false;
 
@@ -20,6 +22,20 @@ const create_item = () => {
   item.classList.add('item');
   item.id = 'item-' + order;
   item.draggable = true;
+  item.addEventListener('dragstart', event => {
+    event.dataTransfer.setData('text', event.target.id);
+  })
+  item.addEventListener('dragend', event => {
+    event.dataTransfer.clearData();
+  })
+
+  let input = document.createElement('input');
+  let save_btn = document.createElement('button');
+  save_btn.innerHTML = 'Save';
+  item.append(input);
+  save_btn.addEventListener('click', () => {
+    
+  })
 };
 
 document.querySelectorAll('.drop').forEach(element => {
