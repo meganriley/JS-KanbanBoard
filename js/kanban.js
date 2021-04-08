@@ -1,4 +1,4 @@
-const { importNamespaceSpecifier } = require("jscodeshift");
+//const { importNamespaceSpecifier } = require("jscodeshift");
 
 let order = 1;
 let adding = false;
@@ -8,6 +8,7 @@ const message = 'Please add a description.';
 
 const add_btn = document.querySelector('.add');
 add_btn.addEventListener('click', () => {
+  console.log('You clicked me!');
   const target = document.querySelector('#requested');
   if (adding == false) {
     adding = true;
@@ -28,9 +29,9 @@ const create_item = () => {
   item.addEventListener('dragend', event => {
     event.dataTransfer.clearData();
   })
-  item.appendChild(input);
 
   let input = document.createElement('input');
+  item.appendChild(input);
   let save_btn = document.createElement('button');
   save_btn.innerHTML = 'Save';
   save_btn.addEventListener('click', () => {
@@ -52,7 +53,8 @@ document.querySelectorAll('.drop').forEach(element => {
     event.preventDefault();
     const id = event.dataTransfer.getData('text');
     event.target.appendChild(document.getElementById(id));
-    element.addEventListener('dragover', (event) => {
+    //element.addEventListener('dragover', (event) => {
+      console.log("You dragged me!")
       event.preventDefault();
     })
   })
