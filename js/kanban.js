@@ -48,14 +48,14 @@ const create_item = () => {
     return item;
 };
 
-document.querySelectorAll('.drop').forEach(element => {
-  element.addEventListener('drop', event => {
-    event.preventDefault();
-    const id = event.dataTransfer.getData('text');
-    event.target.appendChild(document.getElementById(id));
-    //element.addEventListener('dragover', (event) => {
-      console.log("You dragged me!")
-      event.preventDefault();
-    })
-  })
-});
+// document.querySelectorAll('.drop').forEach(element => {
+//   element.addEventListener('drop', event => {
+//     event.preventDefault();
+//     const id = event.dataTransfer.getData('text');
+//     event.target.appendChild(document.getElementById(id));
+//     element.addEventListener('dragover', (event) => {
+//       console.log("You dragged me!")
+//       event.preventDefault();
+//     })
+//   })
+// });
